@@ -51,3 +51,70 @@
 #include <iostream>
 using namespace std;
 
+// Part A: Print the first N Fibonacci terms
+void printFibonacci(int N) {
+    int first = 0;
+    int second = 1;
+
+    for (int i = 0; i < N; i++) {
+        cout << first << " ";
+
+        int next = first + second;
+        first = second;
+        second = next;
+    }
+
+    cout << endl;
+}
+
+// Part B: Check if a number is a Fibonacci number
+bool isFibonacci(int number) {
+    int first = 0;
+    int second = 1;
+
+    while (first <= number) {
+        if (first == number) {
+            return true;
+        }
+
+        int next = first + second;
+        first = second;
+        second = next;
+    }
+
+    return false;
+}
+
+int main() {
+    // Part A
+    int N;
+
+    cout << "PART A: Fibonacci Sequence" << endl;
+    cout << "How many terms do you want to display? ";
+    cin >> N;
+
+    if (N <= 0) {
+        cout << "Please enter a positive number." << endl;
+    } else {
+        cout << "First " << N << " Fibonacci terms: ";
+        printFibonacci(N);
+    }
+
+    // Part B
+    int number;
+
+    cout << "\nPART B: Check Fibonacci Number" << endl;
+    cout << "Enter a number: ";
+    cin >> number;
+
+    if (number < 0) {
+        cout << number << " is not a Fibonacci number." << endl;
+    } else if (isFibonacci(number)) {
+        cout << number << " is a Fibonacci number." << endl;
+    } else {
+        cout << number << " is not a Fibonacci number." << endl;
+    }
+
+    return 0;
+}
+
